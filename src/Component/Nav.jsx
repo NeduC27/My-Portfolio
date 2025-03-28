@@ -19,10 +19,10 @@ function Nav() {
 
   <ul 
     className='md:hidden flex flex-col text-bold fixed text-sm  mt-0 ml-0 bg-black border-2 border-pink-500  text-white p-[10px] items-center gap-[5px]'>
-    <li><a href="http://">About Me</a></li>
-    <li><a href="http://">Project</a></li>
-    <li><a href="http://">Skill</a></li>
-    <li><a href="http://">Contact Me</a></li>
+    <li><Link to="/about-me">About Me</Link></li>
+    <li><Link to="/project">Project</Link></li>
+    <li><Link to="/skill">Skill</Link></li>
+    <li><Link to="/contact-me">Contact Me</Link></li>
   </ul>    
      
   </aside> 
@@ -59,10 +59,10 @@ function Nav() {
             className='md:hidden flex flex-col text-bold fixed text-sm font-bold top-20 right-0 
               bottom-0 p-[10px] items-center gap-[5px]'>
             
-            <li className='hover:underline decoration-pink-500'><a href="/">Home</a></li>
-            <li className='hover:underline decoration-pink-500'><a href="about-me/">About Me</a></li>
-            <li className='hover:underline decoration-pink-500'><a href="/project">Project</a></li>
-            <li className='hover:underline decoration-pink-500'><a href="/skill">Skill</a></li>
+            <li className='hover:underline decoration-pink-500'><Link to="/">Home</Link></li>
+            <li className='hover:underline decoration-pink-500'><Link to="/about-me">About Me</Link></li>
+            <li className='hover:underline decoration-pink-500'><Link to="/project">Project</Link></li>
+            <li className='hover:underline decoration-pink-500'><Link to="/skill">Skill</Link></li>
           </ul>    
         }
       </aside>

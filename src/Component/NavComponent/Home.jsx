@@ -1,5 +1,5 @@
 import React from 'react'
-import Nedu2 from '/src/assets/Images/Nedu2 (11).png'
+import NeduC from '/src/assets/Images/NeduC.jpg'
 
 
 function Home() {
@@ -20,7 +20,7 @@ function Home() {
         </div>
 
         <div className=' mx-auto'>
-          <img src={Nedu2} alt="" className='mt-11 hover:scale-108 border-2 border-indigo-400 md:border-green-400 lg:border-pink-400 rounded-[300px] w-[260px] h-[300px] lg:w-[330px] lg:h-[370px]'/>
+          <img src={NeduC} alt="" className='mt-11 hover:scale-108 border-2 border-indigo-400 md:border-green-400 lg:border-gray-400 rounded-[300px] w-[260px] h-[300px] lg:w-[300px] lg:h-[370px]'/>
         </div>
       </div>
     </div>

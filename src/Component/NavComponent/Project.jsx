@@ -15,40 +15,37 @@ function Project() {
       
       {/* Project 1 */}
       <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-        <img src="/images/project1.png" alt="Project 1" className="rounded-lg"/>
+        <h2>Project 1</h2>
         <h3 className="text-xl font-bold mt-4">E-Commerce Website</h3>
         <p className="text-gray-300 mt-2">
           A fully responsive e-commerce platform built with React.js, TailwindCSS, and Stripe API for seamless checkout.
         </p>
         <div className="mt-4 flex gap-3">
-          <a href="https://myecommerceapp.com" className="text-indigo-400 hover:underline">Live Demo</a>
-          <a href="https://github.com/yourgithub/ecommerce-app" className="text-pink-400 hover:underline">GitHub</a>
+          <a href="https://neduc27.github.io/E-Commerce-site/" className="text-indigo-400 hover:underline">Explore Live Site</a>
         </div>
       </div>
 
       {/* Project 2 */}
       <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-        <img src="" alt="Project 2" className="rounded-lg"/>
+        <h2>Project 2</h2>
         <h3 className="text-xl font-bold mt-4">Real-Time Chat App</h3>
         <p className="text-gray-300 mt-2">
           A chat application with real-time messaging using Firebase and TailwindCSS.
         </p>
         <div className="mt-4 flex gap-3">
-          <a href="https://mychatapp.com" className="text-indigo-400 hover:underline">Live Demo</a>
-          <a href="https://github.com/yourgithub/chat-app" className="text-pink-400 hover:underline">GitHub</a>
+          <a href="https://chatappnedu.netlify.app/" className="text-indigo-400 hover:underline">Explore Live Site</a>
         </div>
       </div>
 
       {/* Project 3 */}
       <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-        <img src="/images/project3.png" alt="Project 3" className="rounded-lg"/>
+        <h2>Project 3</h2>
         <h3 className="text-xl font-bold mt-4">Portfolio Website</h3>
         <p className="text-gray-300 mt-2">
           My personal portfolio website built with React.js, Vite, and TailwindCSS to showcase my skills and projects.
         </p>
         <div className="mt-4 flex gap-3">
-          <a href="https://myportfolio.com" className="text-indigo-400 hover:underline">Live Demo</a>
-          <a href="https://github.com/yourgithub/portfolio" className="text-pink-400 hover:underline">GitHub</a>
+          {/*<a href="" className="text-indigo-400 hover:underline">Explore Live Site</a>*/}
         </div>
       </div>
 
