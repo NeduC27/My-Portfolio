@@ -15,7 +15,7 @@ function Home() {
           <div className='space-x-[10px] space-y-4 mx-auto'>
             <button className='border-none rounded-full py-2 text-white cursor-pointer hover:bg-indigo-200 hover:text-black px-[30px] bg-indigo-400 md:bg-green-700 lg:bg-pink-500'><a href="/contact-me">Contact Me</a></button>
             <button className='border-none rounded-full py-2 text-white cursor-pointer hover:bg-indigo-200 hover:text-black px-[30px] bg-indigo-400 md:bg-green-700 lg:bg-pink-500'>
-              <a href="https://drive.google.com/file/d/1AgOJ94TxLoIEDy89RLT1RpKg6pXPqnLH/view?usp=sharing">Resume</a></button>
+              <a href="https://drive.google.com/file/d/19Ydsl8loEnP3vlI1b9LGNZQdW032P5jq/view?usp=sharing">Resume</a></button>
           </div>
         </div>
 

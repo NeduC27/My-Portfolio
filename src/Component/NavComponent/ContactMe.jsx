@@ -44,4 +44,4 @@ function ContactMe() {
   )
 }
 
-export default ContactMe
+export default ContactMe;
