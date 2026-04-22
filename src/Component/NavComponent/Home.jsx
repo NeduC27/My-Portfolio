@@ -1,30 +1,142 @@
-import React from 'react'
-import NeduC from '/src/assets/Images/NeduC.jpg'
+import React from 'react';
+import { Container, Typography, Button, Box, Avatar, Stack } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
+import DescriptionIcon from '@mui/icons-material/Description';
+import { motion } from 'framer-motion';
+import NeduC from '/src/assets/Images/NeduC.jpg';
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" }
+  }
+};
 
 function Home() {
   return (
-    <div>
+    <Container maxWidth="lg" className="px-4 py-12">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        <Box 
+          className="relative min-h-[75vh] flex items-center bg-gray-900/50 rounded-[2.5rem] overflow-hidden border border-white/5 blueprint-grid"
+        >
+          <Stack 
+            direction={{ xs: 'column-reverse', md: 'row' }} 
+            spacing={{ xs: 6, md: 10 }} 
+            className="w-full items-center justify-between p-8 md:p-20 z-10"
+          >
+            {/* Text Content */}
+            <Box className="flex-1 text-center md:text-left">
+              <motion.div variants={itemVariants}>
+                <Typography 
+                  variant="overline" 
+                  className="font-bold text-blue-400 tracking-[0.3em] text-xs md:text-sm uppercase mb-2 block"
+                >
+                  Technical Portfolio
+                </Typography>
+              </motion.div>
+              
+              <motion.div variants={itemVariants}>
+                <Typography 
+                  variant="h2" 
+                  className="font-black mt-2 mb-6 text-white leading-[1.1]"
+                  sx={{ fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem' } }}
+                >
+                  Fullstack Dev <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
+                    & Technical Project Manager
+                  </span>
+                </Typography>
+              </motion.div>
 
-      <div className='flex flex-col lg:flex-row px-10 md:flex gap-10 lg:px-16 pt-[50px] md:pt-[75px] md:text-center lg:text-start lg:pt-[100px]'>
-        <div className='flex flex-col gap-11 w-64 text-center md:w-[600px]'>
-          <h2 className='text-[30px] font-bold md:text-center md:text-[40px] lg:text-[50px]'><span className='text-indigo-400 md:text-green-700 lg:text-pink-500'>Welcome</span> to my portfolio website</h2>
-          <p className='md:text-[20px] lg:text-[25px]'>Hello, I am Nedu. A FrontEnd Developer. Here I am presenting my project and services. 
-          <span className='text-indigo-400 md:text-green-700 lg:text-pink-500'>  Let's explore</span>.</p>
-          
-          <div className='space-x-[10px] space-y-4 mx-auto'>
-            <button className='border-none rounded-full py-2 text-white cursor-pointer hover:bg-indigo-200 hover:text-black px-[30px] bg-indigo-400 md:bg-green-700 lg:bg-pink-500'><a href="/contact-me">Contact Me</a></button>
-            <button className='border-none rounded-full py-2 text-white cursor-pointer hover:bg-indigo-200 hover:text-black px-[30px] bg-indigo-400 md:bg-green-700 lg:bg-pink-500'>
-              <a href="https://drive.google.com/file/d/19Ydsl8loEnP3vlI1b9LGNZQdW032P5jq/view?usp=sharing">Resume</a></button>
-          </div>
-        </div>
+              <motion.div variants={itemVariants}>
+                <Typography 
+                  className="mb-10 font-medium text-gray-400 max-w-lg mx-auto md:mx-0 text-lg md:text-xl leading-relaxed"
+                >
+                  Fusing architectural precision with modern engineering. 
+                  Specializing in MERN stack development and agile fintech delivery.
+                </Typography>
+              </motion.div>
 
-        <div className=' mx-auto'>
-          <img src={NeduC} alt="" className='mt-11 hover:scale-108 border-2 border-indigo-400 md:border-green-400 lg:border-gray-400 rounded-[300px] w-[260px] h-[300px] lg:w-[300px] lg:h-[370px]'/>
-        </div>
-      </div>
-    </div>
-  )
+              <motion.div variants={itemVariants}>
+                <Stack 
+                  direction={{ xs: 'column', sm: 'row' }} 
+                  spacing={3} 
+                  className="justify-center md:justify-start"
+                >
+                  <Button 
+                    variant="contained" 
+                    component={motion.a}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-blue-600 hover:bg-blue-700 rounded-full px-10 py-4 normal-case text-lg font-bold shadow-lg shadow-blue-600/20"
+                    endIcon={<SendIcon />}
+                    href="#/contact-me"
+                  >
+                    Let's Talk
+                  </Button>
+                  
+                  <Button 
+                    variant="outlined" 
+                    component={motion.a}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="border-white/20 text-white hover:border-blue-400 hover:bg-white/5 rounded-full px-10 py-4 normal-case text-lg font-bold backdrop-blur-sm"
+                    startIcon={<DescriptionIcon />}
+                    href="https://drive.google.com/file/d/19Ydsl8loEnP3vlI1b9LGNZQdW032P5jq/view?usp=sharing"
+                    target="_blank"
+                  >
+                    View CV
+                  </Button>
+                </Stack>
+              </motion.div>
+            </Box>
+
+            {/* Profile Image */}
+            <motion.div 
+              variants={itemVariants}
+              className="flex-shrink-0"
+              whileHover={{ scale: 1.02 }}
+            >
+              <Box className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[35px] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                <Avatar
+                  src={NeduC}
+                  alt="Nedu"
+                  className="relative border border-white/10 shadow-2xl transition-all duration-500"
+                  sx={{
+                    width: { xs: 260, sm: 320, md: 400 },
+                    height: { xs: 300, sm: 360, md: 460 },
+                    borderRadius: '32px',
+                    objectPosition: 'top'
+                  }}
+                />
+              </Box>
+            </motion.div>
+          </Stack>
+
+          {/* Architectural Lines Overlay (Subtle) */}
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-blue-500/5 to-transparent pointer-events-none" />
+        </Box>
+      </motion.div>
+    </Container>
+  );
 }
 
 export default Home;

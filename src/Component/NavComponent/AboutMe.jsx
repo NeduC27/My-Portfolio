@@ -1,52 +1,107 @@
-import React from 'react'
-import Nedu from '/src/assets/Images/Nedu.jpg'
+import React from 'react';
+import { motion } from 'framer-motion';
+import Nedu from '/src/assets/Images/Nedu.jpg';
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" }
+  }
+};
 
 function AboutMe() {
   return (
-    <div>
-  
-      <section className="about-me px-6 py-11 text-white text-center md:text-left">
-        <h2 className=" text-[25px] lg:text-[32px] text-center text-indigo-500 md:text-green-500 lg:text-pink-500 underline">About Me</h2>
-        <div className="container px-10 flex flex-col lg:flex-row items-center space-y-5 md:space-y-6 lg:space-x-10">
-      
-          {/* Profile Image (Optional) */}
-          <img src={Nedu} alt="Chinedu Hilary" 
-          className="w-56 h-60 mt-11 md:w-72 md:h-80 rounded-full shover:scale-108 border-2 border-indigo-400 md:border-green-400 lg:border-pink-400"/>
-
-          {/* Text Content */}
-          <div className="">
-            
-            <p className="text-lg mt-4 leading-relaxed text-black">
-              Hi, I'm <span className="font-bold text-indigo-700  md:text-green-700 lg:text-pink-600">Chinedu Hilary</span>, a passionate <span className="text-indigo-700 md:text-green-700 lg:text-pink-600">Front-End Developer</span> based in Nigeria.  
-              With a background in <span className="text-green-800">Architecture</span>, I bring a unique perspective to web design, combining aesthetics with functionality.
-            </p>
-
-            <p className="text-lg mt-4 leading-relaxed text-black">
-              My expertise includes <span className="text-indigo-700  md:text-green-700 lg:text-pink-600">React.js, TailwindCSS, JavaScript, HTML, CSS, API Integrations</span>, and modern web technologies. I love crafting smooth user experiences and responsive, pixel-perfect designs.
-            </p>
-
-            <p className="text-lg mt-4 leading-relaxed text-black">
-              When I'm not coding, I'm exploring ew design trends, learning new technologies**, or improving my problem-solving skills.
-            </p>
-
-            <p className="text-lg mt-4 leading-relaxed text-black">
-              I'm currently open to <span className="text-indigo-700  md:text-green-700 lg:text-pink-600">freelance projects, collaborations, and full-time opportunities</span>. Let's build something amazing together! 🚀
-            </p>
-
-            {/* Call to Action */}
-            <div className="mt-14">
-              <a href="/contact-me" className=
-              "bg-gradient-to-r from-gray-800 to-indigo-500  hover:text-black md:bg-gradient-to-r md:from-gray-800 md:to-green-400 lg:bg-gradient-to-r lg:from-gray-800 lg:to-pink-400 text-white px-6 py-3 rounded-lg">
-                Let's Connect
-              </a>
+    <section className="about-me py-24 blueprint-grid min-h-screen">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <div className="flex flex-col lg:flex-row items-center gap-16">
+          
+          {/* Image Side */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative lg:w-1/2 flex justify-center"
+          >
+            <div className="relative group">
+              {/* Decorative Frame */}
+              <div className="absolute -inset-4 border border-blue-500/20 rounded-[40px] -rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
+              <div className="absolute -inset-4 border border-indigo-500/20 rounded-[40px] rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
+              
+              <img 
+                src={Nedu} 
+                alt="Chinedu Hilary" 
+                className="relative w-64 h-80 md:w-80 md:h-[450px] object-cover rounded-[32px] shadow-2xl z-10 grayscale hover:grayscale-0 transition-all duration-700"
+              />
             </div>
+            
+            {/* Stats Overlay */}
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5 }}
+              className="absolute -bottom-6 -right-6 lg:right-12 glass-card p-6 z-20 shadow-xl"
+            >
+              <p className="text-3xl font-black text-blue-500">5+</p>
+              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Years Experience</p>
+            </motion.div>
+          </motion.div>
+
+          {/* Text Side */}
+          <div className="lg:w-1/2 space-y-8">
+            <motion.div 
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
+                Engineering <span className="text-blue-500">Aesthetics</span> <br /> 
+                through Code.
+              </h2>
+              <div className="h-1.5 w-20 bg-blue-600 rounded-full mb-8"></div>
+            </motion.div>
+
+            <motion.div 
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-6 text-gray-400 text-lg leading-relaxed"
+            >
+              <p>
+                Hi, I'm <span className="text-white font-bold">Chinedu Hilary</span>. My journey began in the world of <span className="text-blue-400 font-semibold italic">Architecture</span>, where I learned the critical balance between structure, functionality, and beauty.
+              </p>
+              <p>
+                Today, I apply those same principles to the digital realm. As a <span className="text-white font-semibold">Fullstack Developer</span>, I don't just build websites; I engineer digital experiences that are pixel-perfect, performant, and purposeful.
+              </p>
+              <p>
+                My technical arsenal includes <span className="text-blue-400">React.js, Node.js, Laravel, and TailwindCSS</span>. I specialize in bridging the gap between complex backend logic and high-end frontend interfaces.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="pt-8"
+            >
+              <a 
+                href="#/contact-me" 
+                className="inline-flex items-center gap-3 bg-white text-gray-950 px-8 py-4 rounded-full font-bold hover:bg-blue-500 hover:text-white transition-all transform hover:scale-105"
+              >
+                Let's Build Something
+              </a>
+            </motion.div>
           </div>
 
         </div>
+      </div>
     </section>
-
-    </div>
-  )
+  );
 }
 
 export default AboutMe;

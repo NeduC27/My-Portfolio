@@ -1,61 +1,97 @@
-import React from 'react'
-import { FaInstagram } from "react-icons/fa";
+import React from 'react';
+import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
 import { MdOutlineAttachEmail } from "react-icons/md";
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 function Footer() {
+  const socialLinks = [
+    { icon: <FaInstagram />, href: "https://www.instagram.com/chineduhilary/" },
+    { icon: <FaXTwitter />, href: "https://x.com/chinedu43144462/" },
+    { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/chinedu-hilary-80653a335/" },
+    { icon: <FaGithub />, href: "https://github.com/NeduC27" },
+    { icon: <MdOutlineAttachEmail />, href: "mailto:chineduhilary80@gmail.com" },
+  ];
+
   return (
-    <div className=' pt-20'>
-      <footer className="bg-gradient-to-r from-gray-800 to-blue-400 md:bg-gradient-to-r md:from-gray-800 md:to-green-600 lg:bg-gradient-to-r lg:from-gray-800 lg:to-pink-400  w-full py-[25px]">
-
-        <div className='flex flex-col items-center px-5 space-y-[20px] md:flex-row md:justify-between md:items-center md:space-x-10 md:px-10'>
+    <footer className="bg-gray-950 border-t border-white/5 pt-20 pb-10">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           
-            <div>
-                
-              <h1 
-                className='font-extrabold text-lg lg:text-2xl underline decoration-pink-500 text-white md:text-2xl'
+          {/* Brand Col */}
+          <div className="md:col-span-2 space-y-6">
+            <h2 className="text-3xl font-black text-white">
+              NEDU<span className="text-blue-500">.</span>
+            </h2>
+            <p className="text-gray-400 max-w-sm leading-relaxed">
+              Fusing architectural principles with software engineering to build 
+              digital structures that last. Based in Nigeria, serving globally.
+            </p>
+            <div className="flex gap-4">
+              {socialLinks.map((social, i) => (
+                <motion.a 
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  whileHover={{ y: -5, color: "#3b82f6" }}
+                  className="text-2xl text-gray-500 transition-colors"
                 >
-                Nedu.C
-              </h1>
-
-              <p className='md:text-[17px] lg:text-[19px] text-white mt-2'>Front-End developer based in Nigeria, specializing in web and
-              <span className='text-black md:text-green-200 lg:text-pink-500'>  software development.</span>.</p>
-            
-              <p className="font-semibold text-white">Looking for a front-end developer? <a href="/contact-me" className="text-black underline">Let's work together!</a></p>
-
-            </div>    
-
-            <div className="flex flex-col space-y-2 text-white">
-                <a href="/" className="hover:text-gray-700">Home</a>
-                <a href="/about-me" className="hover:text-gray-700">About</a>
-                <a href="/project" className="hover:text-gray-700">Projects</a>
-                <a href="/skill" className="hover:text-gray-700">Skill</a>
-                <a href="/contact-me" className="hover:text-gray-700">Contact</a>
+                  {social.icon}
+                </motion.a>
+              ))}
             </div>
+          </div>
 
+          {/* Quick Links */}
+          <div className="space-y-6">
+            <h3 className="text-xs font-black uppercase tracking-widest text-white">Navigation</h3>
+            <ul className="space-y-4">
+              {['Home', 'About Me', 'Project', 'Skill', 'Contact Me'].map((item) => (
+                <li key={item}>
+                  <Link 
+                    to={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`}
+                    className="text-gray-400 hover:text-white transition-colors text-sm font-medium"
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <div>
-              <div className='flex space-x-[10px] cursor-pointer  text-[20px] text-white md:text-2xl lg:text-3xl'>
-                  <a href="https://www.instagram.com/chineduhilary/"><FaInstagram className='hover:text-gray-500'/></a>
-                  <a href="https://x.com/chinedu43144462/"><FaXTwitter className='hover:text-gray-500'/></a>
-                  <a href="https://www.linkedin.com/in/chinedu-hilary-80653a335/"><FaLinkedin className='hover:text-gray-500'/></a>
-                  <a href="https://github.com/NeduC27"><FaGithub className='hover:text-gray-500'/></a>
-                  <a href="http://mailto:chineduhilary80@gmail.com"><MdOutlineAttachEmail className='hover:text-gray-500'/></a>
-              </div>
-
-              <div className='flex space-x-2 text-white mt-2 md:flex-col lg:flex-row'>
-                <p>{'\u00A9'}{new Date().getFullYear()} Nedu.C</p>
-                <div className='bg-white w-[2px] h-[20px] md:hidden lg:flex'></div>
-                <p>All Rights Reserved.</p>
-              </div>
+          {/* Contact Col */}
+          <div className="space-y-6">
+            <h3 className="text-xs font-black uppercase tracking-widest text-white">Get in Touch</h3>
+            <div className="space-y-4">
+              <p className="text-sm text-gray-400">
+                Lagos, Nigeria <br />
+                Available for Remote Work
+              </p>
+              <a 
+                href="mailto:chineduhilary80@gmail.com" 
+                className="text-blue-500 font-bold text-sm block hover:underline"
+              >
+                chineduhilary80@gmail.com
+              </a>
             </div>
+          </div>
+
         </div>
-        
-      </footer>
-    </div>
-  )
+
+        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-gray-500 text-xs font-medium tracking-widest uppercase">
+            © {new Date().getFullYear()} CHINEDU HILARY. ALL RIGHTS RESERVED.
+          </p>
+          <div className="flex gap-8">
+            <span className="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Built with React & Vite</span>
+            <span className="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Designed by Nedu</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }
 
 export default Footer;

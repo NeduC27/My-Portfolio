@@ -1,91 +1,108 @@
-import React, {useState} from 'react'
-import { RiMenu2Fill } from "react-icons/ri";
+import React, { useState, useEffect } from 'react';
+import { RiMenu3Line } from "react-icons/ri";
 import { FaTimes } from "react-icons/fa";
-import {Link} from 'react-router-dom'
-
+import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function Nav() {
-  const [menuClick, setMenuClick] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-  const toggle = () => {
-    setMenuClick((prev) => !prev)
-  };
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  const toggleX = () => {
-    setMenuClick(false)
-  }
-
-  const content =  <aside>
-
-  <ul 
-    className='md:hidden flex flex-col text-bold fixed text-sm  mt-0 ml-0 bg-black border-2 border-pink-500  text-white p-[10px] items-center gap-[5px]'>
-    <li><Link to="/about-me">About Me</Link></li>
-    <li><Link to="/project">Project</Link></li>
-    <li><Link to="/skill">Skill</Link></li>
-    <li><Link to="/contact-me">Contact Me</Link></li>
-  </ul>    
-     
-  </aside> 
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about-me' },
+    { name: 'Projects', path: '/project' },
+    { name: 'Skills', path: '/skill' },
+    { name: 'Contact', path: '/contact-me' },
+  ];
 
   return (
     <nav 
-     className='flex justify-between items-center px-10 md:px-12 lg:px-14
-     xl:px-16 lg:pt-[20px] pt-[17px]'>
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? 'bg-gray-950/80 backdrop-blur-xl border-b border-white/5 py-4' : 'bg-transparent py-6'
+      }`}
+    >
+      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
+        {/* Logo */}
+        <Link to="/" className="relative group">
+          <motion.h1 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="text-2xl font-black tracking-tighter text-white"
+          >
+            NEDU<span className="text-blue-500">.</span>
+          </motion.h1>
+          <div className="absolute -bottom-1 left-0 w-0 h-1 bg-blue-600 transition-all duration-300 group-hover:w-full"></div>
+        </Link>
 
-      <h1 
-        className='font-bold text-2xl lg:text-3xl lg:text-purple-800 text-blue-600 underline decoration-pink-500 md:text-black md:text-2xl'>
-        Nedu.C
-      </h1>
+        {/* Desktop Links */}
+        <div className="hidden md:flex items-center gap-10">
+          {navLinks.map((link) => (
+            <Link 
+              key={link.path} 
+              to={link.path}
+              className={`text-sm font-bold uppercase tracking-[0.2em] transition-all hover:text-blue-400 ${
+                location.pathname === link.path ? 'text-blue-500' : 'text-gray-400'
+              }`}
+            >
+              <motion.span
+                whileHover={{ y: -2 }}
+                whileTap={{ y: 0 }}
+                className="inline-block"
+              >
+                {link.name}
+              </motion.span>
+            </Link>
+          ))}
+          <Link 
+            to="/contact-me"
+            className="bg-white text-gray-950 px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all transform hover:scale-105"
+          >
+            Hire Me
+          </Link>
+        </div>
 
-      <div>
-        <ul 
-         className='hidden gap-[38px] text-[18px] text-black font-bold md:flex md:text-[15px]
-         lg:text-[19px] xl:text-[21px]'>
-          <li className='md:hover:text-2xl md:hover:underline  md:decoration-green-700 lg:decoration-pink-500'><Link to='/'>Home</Link></li>
-          <div className='w-[3px] h-[40px] md:bg-green-700 lg:bg-pink-500'></div>
-          <li className='md:hover:text-2xl md:hover:underline  md:decoration-green-700 lg:decoration-pink-500'><Link to='/about-me'>About Me</Link></li>
-          <div className='w-[3px] h-[40px] md:bg-green-700 lg:bg-pink-500'></div>
-          <li className='md:hover:text-2xl md:hover:underline  md:decoration-green-700 lg:decoration-pink-500'><Link to='/project'>Project</Link></li>
-          <div className='w-[3px] h-[40px] md:bg-green-700 lg:bg-pink-500'></div>
-          <li className='md:hover:text-2xl md:hover:underline  md:decoration-green-700 lg:decoration-pink-500'><Link to='/skill'>Skill</Link></li>
-        </ul>
+        {/* Mobile Toggle */}
+        <div className="md:hidden text-2xl text-white cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FaTimes /> : <RiMenu3Line />}
+        </div>
       </div>
 
-      
-      <aside className='md:hidden'>
-      
-       {menuClick &&
-         <ul 
-            className='md:hidden flex flex-col text-bold fixed text-sm font-bold top-20 right-0 
-              bottom-0 p-[10px] items-center gap-[5px]'>
-            
-            <li className='hover:underline decoration-pink-500'><Link to="/">Home</Link></li>
-            <li className='hover:underline decoration-pink-500'><Link to="/about-me">About Me</Link></li>
-            <li className='hover:underline decoration-pink-500'><Link to="/project">Project</Link></li>
-            <li className='hover:underline decoration-pink-500'><Link to="/skill">Skill</Link></li>
-          </ul>    
-        }
-      </aside>
-
-      <div className='md:hidden text-xl'>
-        {menuClick ? 
-        (<FaTimes onClick={toggleX}/>)
-        :
-        (<RiMenu2Fill onClick={toggle}/>) 
-      }
-      </div>
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-gray-950 border-b border-white/5 overflow-hidden"
+          >
+            <div className="flex flex-col p-8 gap-6">
+              {navLinks.map((link) => (
+                <Link 
+                  key={link.path} 
+                  to={link.path}
+                  onClick={() => setMenuOpen(false)}
+                  className={`text-xl font-black uppercase tracking-widest ${
+                    location.pathname === link.path ? 'text-blue-500' : 'text-gray-500'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
-  )
+  );
 }
 
 export default Nav;
-
-/*
-
-Breakpoint prefix	Minimum width	CSS
-sm	40rem (640px)	@media (width >= 40rem) { ... }
-md	48rem (768px)	@media (width >= 48rem) { ... }
-lg	64rem (1024px)	@media (width >= 64rem) { ... }
-xl	80rem (1280px)	@media (width >= 80rem) { ... }
-2xl	96rem (1536px)	@media (width >= 96rem) { ... }
- */

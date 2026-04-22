@@ -1,60 +1,113 @@
-import React from 'react'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { projects } from '../../assets/data/projects';
+import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, scale: 0.9, y: 20 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
+  }
+};
 
 function Project() {
   return (
-    <div>
-      <section className="projects px-6 py-12 text-white">
-  <div className="container mx-auto">
-    
-    <h2 className="text-[19px]  md:text-2xl underline text-indigo-400 md:text-green-700 lg:text-pink-500 text-center">My Projects</h2>
-    <p className="text-lg text-black text-center mt-2">
-      Here are some of the projects I've worked on, showcasing my expertise in React.js, TailwindCSS, API Integration, and Front-End Development.
-    </p>
+    <section className="projects px-6 py-20 text-white blueprint-grid min-h-screen">
+      <div className="container mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">
+            Featured <span className="text-blue-500">Projects</span>
+          </h2>
+          <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full mb-6"></div>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto font-medium">
+            A curation of high-performance web systems, architectural designs, 
+            and scalable digital solutions.
+          </p>
+        </motion.div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-      
-      {/* Project 1 */}
-      <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-        <h2>Project 1</h2>
-        <h3 className="text-xl font-bold mt-4">E-Commerce Website</h3>
-        <p className="text-gray-300 mt-2">
-          A fully responsive e-commerce platform built with React.js, TailwindCSS, and Stripe API for seamless checkout.
-        </p>
-        <div className="mt-4 flex gap-3">
-          <a href="https://neduc27.github.io/E-Commerce-site/" className="text-indigo-400 hover:underline">Explore Live Site</a>
-        </div>
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {projects.map((project) => (
+            <motion.div 
+              key={project.id}
+              variants={cardVariants}
+              whileHover={{ y: -10 }}
+              className="glass-card overflow-hidden group flex flex-col h-full"
+            >
+              {/* Project Image Placeholder / Image */}
+              <div className="relative h-56 overflow-hidden bg-gray-800">
+                <div className="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
+                  onError={(e) => {
+                    e.target.src = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop"; // Tech placeholder
+                  }}
+                />
+                <div className="absolute top-4 left-4 z-20">
+                  <span className="bg-blue-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest">
+                    {project.category}
+                  </span>
+                </div>
+              </div>
+
+              {/* Project Content */}
+              <div className="p-8 flex flex-col flex-grow">
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-gray-400 mb-6 text-sm leading-relaxed flex-grow">
+                  {project.description}
+                </p>
+
+                {/* Tech Stack Tags */}
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {project.tech.map((t, index) => (
+                    <span key={index} className="text-[10px] font-bold text-gray-500 border border-white/10 px-2 py-1 rounded">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="flex items-center gap-2 text-sm font-bold text-white hover:text-blue-400 transition-colors"
+                  >
+                    Explore Case Study <FaExternalLinkAlt className="text-xs" />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
-
-      {/* Project 2 */}
-      <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-        <h2>Project 2</h2>
-        <h3 className="text-xl font-bold mt-4">Real-Time Chat App</h3>
-        <p className="text-gray-300 mt-2">
-          A chat application with real-time messaging using Firebase and TailwindCSS.
-        </p>
-        <div className="mt-4 flex gap-3">
-          <a href="https://chatappnedu.netlify.app/" className="text-indigo-400 hover:underline">Explore Live Site</a>
-        </div>
-      </div>
-
-      {/* Project 3 */}
-      <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-        <h2>Project 3</h2>
-        <h3 className="text-xl font-bold mt-4">Portfolio Website</h3>
-        <p className="text-gray-300 mt-2">
-          My personal portfolio website built with React.js, Vite, and TailwindCSS to showcase my skills and projects.
-        </p>
-        <div className="mt-4 flex gap-3">
-          {/*<a href="" className="text-indigo-400 hover:underline">Explore Live Site</a>*/}
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-    </div>
-  )
+    </section>
+  );
 }
 
 export default Project;
