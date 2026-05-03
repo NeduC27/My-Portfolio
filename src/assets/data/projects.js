@@ -1,11 +1,11 @@
 export const projects = [
   {
     id: 1,
-    title: "E-Commerce Excellence",
+    title: "Swift Wear E-Commerce",
     category: "Web Application",
     description: "A high-performance e-commerce platform built with React and Tailwind, featuring complex state management and seamless Stripe checkout integration.",
     tech: ["React", "TailwindCSS", "Stripe API", "Redux"],
-    link: "https://neduc27.github.io/E-Commerce-site/",
+    link: "https://swift-wear-e-commerce-site.vercel.app/",
     image: "/src/assets/Images/Ecommerce.jpg", // Ensure these paths exist or use placeholders
   },
   {
@@ -14,11 +14,38 @@ export const projects = [
     category: "Fullstack",
     description: "Architected a low-latency chat application utilizing Firebase for real-time data sync and Tailwind for a sleek, responsive UI.",
     tech: ["React", "Firebase", "TailwindCSS", "Context API"],
-    link: "https://chatappnedu.netlify.app/",
+    link: "https://nedu-chat-app.vercel.app/",
     image: "/src/assets/Images/ChatApp.jpg",
   },
   {
     id: 3,
+    title: "Atlas Trader | AI-Powered Authomated Trading Platform",
+    category: "Fintech",
+    description: "An AI-powered automated trading platform with advanced market analysis and execution.",
+    tech: ["React", "AI", "Trading API", "TailwindCSS"],
+    link: "https://www.atlasaitrader.com",
+    image: "/src/assets/Images/Ecommerce.jpg",
+  },
+  {
+    id: 4,
+    title: "Cooperative Member App",
+    category: "Web Application",
+    description: "A comprehensive member portal for cooperative societies, featuring dashboards, transactions, and profile management.",
+    tech: ["React", "Node.js", "TailwindCSS"],
+    link: "https://app.ajohybrid.com",
+    image: "/src/assets/Images/Portfolio.jpg",
+  },
+  {
+    id: 5,
+    title: "Cooperative Admin App",
+    category: "Web Application",
+    description: "An administrative dashboard for managing cooperative societies, including user management, loan approvals, and reporting.",
+    tech: ["React", "Node.js", "TailwindCSS", "Admin Dashboard"],
+    link: "https://coop.ajohybrid.com",
+    image: "/src/assets/Images/Portfolio.jpg",
+  },
+  {
+    id: 6,
     title: "Architectural Portfolio",
     category: "Design & Dev",
     description: "A premium personal portfolio showcasing technical skills and architectural design philosophy, built with Vite and Framer Motion.",
