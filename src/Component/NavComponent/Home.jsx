@@ -99,7 +99,7 @@ function Home() {
                     whileTap={{ scale: 0.95 }}
                     className="border-white/20 text-white hover:border-blue-400 hover:bg-white/5 rounded-full px-10 py-4 normal-case text-lg font-bold backdrop-blur-sm"
                     startIcon={<DescriptionIcon />}
-                    href="https://docs.google.com/document/d/1cofsu5ToV1RyQpnwIa0USIlZf6nszq2NQMOHCBwPsrA/edit?usp=sharing"
+                    href="https://drive.google.com/file/d/1hRtT97YNL94t3wj_tXnItXR1D9nQ5hee/view?usp=sharing"
                     target="_blank"
                   >
                     View CV

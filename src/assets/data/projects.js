@@ -44,13 +44,4 @@ export const projects = [
     link: "https://coop.ajohybrid.com",
     image: "/src/assets/Images/Portfolio.jpg",
   },
-  {
-    id: 6,
-    title: "Architectural Portfolio",
-    category: "Design & Dev",
-    description: "A premium personal portfolio showcasing technical skills and architectural design philosophy, built with Vite and Framer Motion.",
-    tech: ["React", "Vite", "Framer Motion", "MUI"],
-    link: "#",
-    image: "/src/assets/Images/Portfolio.jpg",
-  }
 ];
