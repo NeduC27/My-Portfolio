@@ -56,10 +56,11 @@ function Home() {
                 <Typography 
                   variant="h2" 
                   className="font-black mt-2 mb-6 text-white leading-[1.1]"
-                  sx={{ fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem' } }}
+                  sx={{ fontSize: { xs: '2.5rem', sm: '3.5rem', md: '3.5rem' } }}
                 >
                   Fullstack Dev <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
+                    QA Software Tester <br />
                     & Technical Project Manager
                   </span>
                 </Typography>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaReact, FaJs, FaHtml5, FaCss3Alt, FaNodeJs, FaLaravel, FaDatabase, FaGitAlt, FaFigma } from 'react-icons/fa';
+import { FaReact, FaJs, FaHtml5, FaCss3Alt, FaNodeJs, FaLaravel, FaDatabase, FaGitAlt, FaFigma, FaBug, FaCheckCircle, FaClipboardList, FaSearch } from 'react-icons/fa';
 import { SiTailwindcss, SiVite, SiTypescript, SiRedux } from 'react-icons/si';
 
 const skillCategories = [
@@ -29,6 +29,15 @@ const skillCategories = [
       { name: "Figma", icon: <FaFigma />, color: "text-pink-500" },
       { name: "Vite", icon: <SiVite />, color: "text-purple-400" },
       { name: "Project Management", icon: <FaJs />, color: "text-blue-400" },
+    ]
+  },
+  {
+    title: "QA & Testing",
+    skills: [
+      { name: "Bug Tracking", icon: <FaBug />, color: "text-red-400" },
+      { name: "Test Case Design", icon: <FaClipboardList />, color: "text-green-400" },
+      { name: "Manual Testing", icon: <FaSearch />, color: "text-yellow-400" },
+      { name: "Quality Assurance", icon: <FaCheckCircle />, color: "text-emerald-400" },
     ]
   }
 ];
@@ -111,7 +120,7 @@ function Skill() {
           transition={{ delay: 0.5 }}
           className="mt-20 pt-10 border-t border-white/5 flex flex-wrap justify-center gap-8 md:gap-16"
         >
-          {["Agile Delivery", "Stakeholder Management", "UX Strategy", "Technical Leadership"].map((soft, i) => (
+          {["Agile Delivery", "Stakeholder Management", "UX Strategy", "Technical Leadership", "QA & Software Testing"].map((soft, i) => (
             <div key={i} className="flex items-center gap-2">
               <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
               <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">{soft}</span>
