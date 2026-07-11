@@ -52,7 +52,7 @@ function Home() {
             />
           </div>
           <Stack
-            direction={{ xs: "column-reverse", md: "row" }}
+            direction={{ xs: "column", md: "row" }}
             spacing={{ xs: 6, md: 10 }}
             className="w-full items-center justify-between p-8 md:p-20 z-10"
           >
