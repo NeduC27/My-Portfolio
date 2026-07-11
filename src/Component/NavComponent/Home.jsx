@@ -137,8 +137,8 @@ function Home() {
                   alt="Nedu"
                   className="relative border border-white/10 shadow-2xl transition-all duration-500"
                   sx={{
-                    width: { xs: 260, sm: 320, md: 300 },
-                    height: { xs: 300, sm: 360, md: 330 },
+                    width: { xs: 200, sm: 320, md: 300 },
+                    height: { xs: 200, sm: 360, md: 330 },
                     borderRadius: "1200px",
                     objectPosition: "top",
                   }}
