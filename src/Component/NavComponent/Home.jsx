@@ -1,9 +1,17 @@
-import React from 'react';
-import { Container, Typography, Button, Box, Avatar, Stack } from '@mui/material';
-import SendIcon from '@mui/icons-material/Send';
-import DescriptionIcon from '@mui/icons-material/Description';
-import { motion } from 'framer-motion';
-import NeduC from '/src/assets/Images/NeduC.jpg';
+//import React from "react";
+import {
+  Container,
+  Typography,
+  Button,
+  Box,
+  Avatar,
+  Stack,
+} from "@mui/material";
+import SendIcon from "@mui/icons-material/Send";
+import DescriptionIcon from "@mui/icons-material/Description";
+import { motion } from "framer-motion";
+import NeduC from "/src/assets/Images/NeduC.jpg";
+import MagicRings from "@/components/MagicRings";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -11,9 +19,9 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.2,
-      delayChildren: 0.3
-    }
-  }
+      delayChildren: 0.3,
+    },
+  },
 };
 
 const itemVariants = {
@@ -21,68 +29,75 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: "easeOut" }
-  }
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
 };
 
 function Home() {
   return (
-    <Container maxWidth="lg" className="px-4 py-12">
+    <Container /*maxWidth="lg"*/ className="px-0 py-20">
       <motion.div
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
-        <Box 
-          className="relative min-h-[75vh] flex items-center bg-gray-900/50 rounded-[2.5rem] overflow-hidden border border-white/5 blueprint-grid"
-        >
-          <Stack 
-            direction={{ xs: 'column-reverse', md: 'row' }} 
-            spacing={{ xs: 6, md: 10 }} 
+        <Box className="relative min-h-[75vh] flex items-center bg-gray-900/50 rounded-[2.5rem] overflow-hidden border border-white/5 blueprint-grid">
+             <div className="absolute inset-0 z-0">
+            <MagicRings
+              color="#3b82f6"      
+              colorTwo="#6366f1"   
+              ringCount={6}
+              speed={1}
+              followMouse={true}
+            />
+          </div>
+          <Stack
+            direction={{ xs: "column-reverse", md: "row" }}
+            spacing={{ xs: 6, md: 10 }}
             className="w-full items-center justify-between p-8 md:p-20 z-10"
           >
             {/* Text Content */}
             <Box className="flex-1 text-center md:text-left">
               <motion.div variants={itemVariants}>
-                <Typography 
-                  variant="overline" 
+                <Typography
+                  variant="overline"
                   className="font-bold text-blue-400 tracking-[0.3em] text-xs md:text-sm uppercase mb-2 block"
                 >
                   Technical Portfolio
                 </Typography>
               </motion.div>
-              
+
               <motion.div variants={itemVariants}>
-                <Typography 
-                  variant="h2" 
+                <Typography
+                  variant="h3"
                   className="font-black mt-2 mb-6 text-white leading-[1.1]"
-                  sx={{ fontSize: { xs: '2.5rem', sm: '3.5rem', md: '3.5rem' } }}
+                  sx={{
+                    fontSize: { xs: "2.5rem", sm: "3.5rem", md: "3.5rem" },
+                  }}
                 >
                   Fullstack Dev <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
-                    QA Software Tester <br />
-                    & Technical Project Manager
+                    QA Software Tester <br />& Technical Project Manager
                   </span>
                 </Typography>
               </motion.div>
 
               <motion.div variants={itemVariants}>
-                <Typography 
-                  className="mb-10 font-medium text-gray-400 max-w-lg mx-auto md:mx-0 text-lg md:text-xl leading-relaxed"
-                >
-                  Fusing architectural precision with modern engineering. 
-                  Specializing in MERN stack development and agile fintech delivery.
+                <Typography className="mb-10 font-medium text-gray-400 max-w-lg mx-auto md:mx-0 text-lg md:text-xl leading-relaxed">
+                  Fusing architectural precision with modern engineering.
+                  Specializing in MERN stack development and agile fintech
+                  delivery.
                 </Typography>
               </motion.div>
 
               <motion.div variants={itemVariants}>
-                <Stack 
-                  direction={{ xs: 'column', sm: 'row' }} 
-                  spacing={3} 
+                <Stack
+                  direction={{ xs: "column", sm: "row" }}
+                  spacing={3}
                   className="justify-center md:justify-start"
                 >
-                  <Button 
-                    variant="contained" 
+                  <Button
+                    variant="contained"
                     component={motion.a}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -90,11 +105,11 @@ function Home() {
                     endIcon={<SendIcon />}
                     href="#/contact-me"
                   >
-                    Let's Talk
+                    Let&apos;s Talk
                   </Button>
-                  
-                  <Button 
-                    variant="outlined" 
+
+                  <Button
+                    variant="outlined"
                     component={motion.a}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -110,22 +125,22 @@ function Home() {
             </Box>
 
             {/* Profile Image */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="flex-shrink-0"
               whileHover={{ scale: 1.02 }}
             >
               <Box className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[35px] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[800px] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
                 <Avatar
                   src={NeduC}
                   alt="Nedu"
                   className="relative border border-white/10 shadow-2xl transition-all duration-500"
                   sx={{
-                    width: { xs: 260, sm: 320, md: 400 },
-                    height: { xs: 300, sm: 360, md: 460 },
-                    borderRadius: '32px',
-                    objectPosition: 'top'
+                    width: { xs: 260, sm: 320, md: 300 },
+                    height: { xs: 300, sm: 360, md: 330 },
+                    borderRadius: "1200px",
+                    objectPosition: "top",
                   }}
                 />
               </Box>

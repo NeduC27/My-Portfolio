@@ -1,7 +1,6 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { projects } from "../../assets/data/projects";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -46,17 +45,17 @@ function Project() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {projects.map((project) => (
             <motion.div
               key={project.id}
-              variants={cardVariants}
+              variants={cardVariants} 
               whileHover={{ y: -10 }}
               className="glass-card overflow-hidden group flex flex-col h-full"
             >
               {/* Project Image Placeholder / Image */}
-              <div className="relative h-56 overflow-hidden bg-gray-800">
+              <div className="relative h-40 overflow-hidden bg-gray-800">
                 <div className="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
                 <img
                   src={project.image}
@@ -75,11 +74,11 @@ function Project() {
               </div>
 
               {/* Project Content */}
-              <div className="p-8 flex flex-col grow">
+              <div className="p-6 flex flex-col grow">
                 <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 mb-6 text-sm leading-relaxed grow">
+                <p className="text-gray-400 mb-4 text-sm leading-relaxed grow">
                   {project.description}
                 </p>
 

@@ -6,7 +6,7 @@ export const projects = [
     description: "A high-performance e-commerce platform built with React and Tailwind, featuring complex state management and seamless Stripe checkout integration.",
     tech: ["React", "TailwindCSS", "Stripe API", "Redux"],
     link: "https://swift-wear-e-commerce-site.vercel.app/",
-    image: "/src/assets/Images/Ecommerce.jpg", // Ensure these paths exist or use placeholders
+    image: "/src/assets/Images/Ecommerce.jpg", 
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ export const projects = [
     description: "A sophisticated fintech platform delivering AI-driven automated trading signals, real-time market data, and portfolio analytics. Features live price feeds, trade execution dashboards, risk management tools, and a sleek dark-mode UI engineered for professional traders.",
     tech: ["React", "TailwindCSS", "Trading API", "AI/ML", "Real-Time Data"],
     link: "https://www.deexoptions.com",
-    image: "/src/assets/Images/Ecommerce.jpg",
+    image: "/src/assets/Images/Deexoptiopn.jpg",
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ export const projects = [
     description: "A comprehensive member portal for cooperative societies, featuring dashboards, transactions, and profile management.",
     tech: ["React", "Node.js", "TailwindCSS"],
     link: "https://app.ajohybrid.com",
-    image: "/src/assets/Images/Portfolio.jpg",
+    image: "/src/assets/Images/Ajohybrid.jpg",
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ export const projects = [
     description: "An administrative dashboard for managing cooperative societies, including user management, loan approvals, and reporting.",
     tech: ["React", "Node.js", "TailwindCSS", "Admin Dashboard"],
     link: "https://coop.ajohybrid.com",
-    image: "/src/assets/Images/Portfolio.jpg",
+    image: "/src/assets/Images/AjohybridCoop.jpg",
   },
   {
     id: 6,
@@ -51,6 +51,6 @@ export const projects = [
     description: "A full-stack cafeteria management platform with dual role-based access — Admins manage inventory (add, edit, update stock, delete items), oversee food categories, and audit system logs with timestamp tracking. Buyers browse available meals, search by name, and place orders through a real-time cart. Built with Nigerian Naira (₦) pricing and a clean SPA interface.",
     tech: ["React", "Node.js", "REST API", "Role-Based Auth", "Vercel"],
     link: "https://fullstack-frontend-food-i-nventory.vercel.app/",
-    image: "/src/assets/Images/Portfolio.jpg",
+    image: "/src/assets/Images/foodInventory.jpg",
   },
 ];

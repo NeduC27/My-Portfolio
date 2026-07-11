@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { RiMenu3Line } from "react-icons/ri";
 import { FaTimes } from "react-icons/fa";
 import { Link, useLocation } from 'react-router-dom';
@@ -26,7 +26,7 @@ function Nav() {
   return (
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-gray-950/80 backdrop-blur-xl border-b border-white/5 py-4' : 'bg-transparent py-6'
+        scrolled ? 'bg-gray-950/80 backdrop-blur-xl /*border-b border-white/5*/ py-4' : 'bg-transparent py-6'
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
@@ -84,13 +84,13 @@ function Nav() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-gray-950 border-b border-white/5 overflow-hidden"
           >
-            <div className="flex flex-col p-8 gap-6">
+            <div className="flex flex-col p-8 gap-3">
               {navLinks.map((link) => (
                 <Link 
                   key={link.path} 
                   to={link.path}
                   onClick={() => setMenuOpen(false)}
-                  className={`text-xl font-black uppercase tracking-widest ${
+                  className={`text-sm font-black uppercase tracking-widest ${
                     location.pathname === link.path ? 'text-blue-500' : 'text-gray-500'
                   }`}
                 >
