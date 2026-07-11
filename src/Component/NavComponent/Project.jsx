@@ -61,10 +61,10 @@ function Project() {
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
-                  // onError={(e) => {
-                  //   e.target.src =
-                  //     "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop"; // Tech placeholder
-                  // }}
+                  onError={(e) => {
+                    e.target.src =
+                      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop"; // Tech placeholder
+                  }}
                 />
                 <div className="absolute top-4 left-4 z-20">
                   <span className="bg-blue-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest">
