@@ -53,7 +53,7 @@ function Home() {
           </div>
           <Stack
             direction={{ xs: "column", md: "row" }}
-            spacing={{ xs: 6, md: 10 }}
+            spacing={{ xs: 4, md: 10 }}
             className="w-full items-center justify-between p-8 md:p-20 z-10"
           >
             {/* Text Content */}
@@ -69,15 +69,15 @@ function Home() {
 
               <motion.div variants={itemVariants}>
                 <Typography
-                  variant="h3"
+                  variant="h4"
                   className="font-black mt-2 mb-6 text-white leading-[1.1]"
                   sx={{
-                    fontSize: { xs: "2.5rem", sm: "3.5rem", md: "3.5rem" },
+                    fontSize: { xs: "1.5rem", sm: "2.5rem", md: "3.5rem" },
                   }}
                 >
-                  Fullstack Dev <br />
+                  Fullstack <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
-                    QA Software Tester <br />& Technical Project Manager
+                    Software <br />& Mobile Developer
                   </span>
                 </Typography>
               </motion.div>
