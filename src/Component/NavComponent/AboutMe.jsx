@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import Nedu from '/src/assets/Images/Nedu.jpg';
 
@@ -57,7 +56,7 @@ function AboutMe() {
               whileInView="visible"
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl text-gray-200 font-black mb-6 leading-tight">
                 Engineering <span className="text-blue-500">Aesthetics</span> <br /> 
                 through Code.
               </h2>

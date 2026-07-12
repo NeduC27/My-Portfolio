@@ -21,7 +21,7 @@ function Footer() {
   ];
 
   return (
-    <footer className=" bg-gray-950 border-t border-white/5 pt-20 pb-10">
+    <footer className="relative bg-gray-950 border-t border-white/5 pt-20 pb-10">
       <SplashCursor
         DENSITY_DISSIPATION={3.5}
         VELOCITY_DISSIPATION={2}
