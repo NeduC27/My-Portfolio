@@ -71,10 +71,10 @@ function AboutMe() {
               className="space-y-6 text-gray-400 text-lg leading-relaxed"
             >
               <p>
-                Hi, I'm <span className="text-white font-bold">Chinedu Hilary</span>. My journey began in the world of <span className="text-blue-400 font-semibold italic">Architecture</span>, where I learned the critical balance between structure, functionality, and beauty.
+                Hi, I&apos;m <span className="text-white font-bold">Chinedu Hilary</span>. My journey began in the world of <span className="text-blue-400 font-semibold italic">Architecture</span>, where I learned the critical balance between structure, functionality, and beauty.
               </p>
               <p>
-                Today, I apply those same principles to the digital realm. As a <span className="text-white font-semibold">Fullstack Developer</span>, I don't just build websites; I engineer digital experiences that are pixel-perfect, performant, and purposeful.
+                Today, I apply those same principles to the digital realm. As a <span className="text-white font-semibold">Fullstack Developer</span>, I don&apos;t just build websites; I engineer digital experiences that are pixel-perfect, performant, and purposeful.
               </p>
               <p>
                 My technical arsenal includes <span className="text-blue-400">React.js, Node.js, Laravel, and TailwindCSS</span>. I specialize in bridging the gap between complex backend logic and high-end frontend interfaces.
@@ -92,7 +92,7 @@ function AboutMe() {
                 href="#/contact-me" 
                 className="inline-flex items-center gap-3 bg-white text-gray-950 px-8 py-4 rounded-full font-bold hover:bg-blue-500 hover:text-white transition-all transform hover:scale-105"
               >
-                Let's Build Something
+                Let&apos;s Build Something
               </a>
             </motion.div>
           </div>
